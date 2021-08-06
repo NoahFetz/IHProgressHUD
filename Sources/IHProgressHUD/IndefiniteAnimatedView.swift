@@ -10,6 +10,7 @@
 
 import UIKit
 
+@available(iOSApplicationExtension, unavailable)
 class IndefiniteAnimatedView : UIView {
     
     private var activityIndicator : UIActivityIndicatorView?
@@ -31,6 +32,7 @@ class IndefiniteAnimatedView : UIView {
 }
 
 //MARK: - Setter Functions
+@available(iOSApplicationExtension, unavailable)
 extension IndefiniteAnimatedView {
     
     func setIndefinite(radius: CGFloat) {
@@ -61,6 +63,7 @@ extension IndefiniteAnimatedView {
 }
 
 //MARK: - Getter Functions
+@available(iOSApplicationExtension, unavailable)
 extension IndefiniteAnimatedView {
     private func getIndefinteAnimatedLayer() -> CAShapeLayer {
         if self.indefinteAnimatedLayer != nil {
@@ -122,6 +125,7 @@ extension IndefiniteAnimatedView {
 }
 
 //MARK: - ActivityIndicatorView Functions
+@available(iOSApplicationExtension, unavailable)
 extension IndefiniteAnimatedView {
     
     func removeAnimationLayer() {
@@ -152,6 +156,7 @@ extension IndefiniteAnimatedView {
     }
 }
 //MARK: -
+@available(iOSApplicationExtension, unavailable)
 extension IndefiniteAnimatedView {
     override func willMove(toSuperview newSuperview: UIView?) {
         if let _ = newSuperview {

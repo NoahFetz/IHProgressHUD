@@ -44,6 +44,7 @@ private let IHProgressHUDVerticalSpacing: CGFloat = 12.0
 private let IHProgressHUDHorizontalSpacing: CGFloat = 12.0
 private let IHProgressHUDLabelSpacing: CGFloat = 8.0
 
+@available(iOSApplicationExtension, unavailable)
 public class IHProgressHUD : UIView {
     
     static var isNotAppExtension = true
@@ -964,6 +965,7 @@ public class IHProgressHUD : UIView {
     }
 }
 
+@available(iOSApplicationExtension, unavailable)
 extension IHProgressHUD {
     
     public class func set(defaultStyle style: IHProgressHUDStyle) {
@@ -1191,6 +1193,7 @@ extension IHProgressHUD {
     }
 }
 //MARK: -
+@available(iOSApplicationExtension, unavailable)
 extension IHProgressHUD {
     private func setGrace(timer: Timer?) {
         if (graceTimer != nil) {
@@ -1215,6 +1218,7 @@ extension IHProgressHUD {
 }
 
 //MARK: - Instance Getter Methods
+@available(iOSApplicationExtension, unavailable)
 extension IHProgressHUD {
     private func foregroundColorForStyle() -> UIColor {
         guard let color = foregroundColor else {
