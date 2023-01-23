@@ -108,9 +108,9 @@ public class IHProgressHUD : UIView {
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
-        infoImage = loadImageBundle(named: "info")!
-        successImage = loadImageBundle(named: "success")!
-        errorImage = loadImageBundle(named: "error")
+        infoImage = UIImage()
+        successImage = UIImage()
+        errorImage = UIImage()
         isUserInteractionEnabled = false
         activityCount = 0
         getBackGroundView().alpha = 0.0
@@ -1511,28 +1511,5 @@ extension IHProgressHUD {
         }
         
         return controlView!
-    }
-    
-    private func loadImageBundle(named imageName:String) -> UIImage? {
-        #if SWIFT_PACKAGE
-            var imageBundle = Bundle(for: IHProgressHUD.self)
-            if let resourcePath = Bundle.module.path(forResource: "IHProgressHUD", ofType: "bundle") {
-                if let resourcesBundle = Bundle(path: resourcePath) {
-                    imageBundle = resourcesBundle
-                }
-            }
-
-            return UIImage(named: imageName, in: imageBundle, compatibleWith: nil)
-        
-        #else
-            var imageBundle = Bundle(for: IHProgressHUD.self)
-            if let resourcePath = imageBundle.path(forResource: "IHProgressHUD", ofType: "bundle") {
-                if let resourcesBundle = Bundle(path: resourcePath) {
-                    imageBundle = resourcesBundle
-                }
-            }
-
-            return (UIImage(named: imageName, in: imageBundle, compatibleWith: nil))
-        #endif
     }
 }

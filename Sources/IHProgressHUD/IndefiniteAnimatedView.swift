@@ -97,8 +97,8 @@ extension IndefiniteAnimatedView {
             indefinteAnimatedLayer?.path = smoothedPath.cgPath
             
             let maskLayer = CALayer()
-            let image = loadImageBundle(named: "angle-mask")
-            maskLayer.contents = image?.cgImage
+            let image = UIImage()
+            maskLayer.contents = image.cgImage
             maskLayer.frame = indefinteAnimatedLayer?.bounds ?? CGRect.zero
             indefinteAnimatedLayer?.mask = maskLayer
             
@@ -206,29 +206,6 @@ extension IndefiniteAnimatedView {
         return CGSize(
             width: (localRadius + localStrokeThickness / 2 + 5) * 2,
             height: (localRadius + localStrokeThickness / 2 + 5) * 2)
-    }
-    
-    private func loadImageBundle(named imageName:String) -> UIImage? {
-        #if SWIFT_PACKAGE
-            var imageBundle = Bundle(for: IHProgressHUD.self)
-            if let resourcePath = Bundle.module.path(forResource: "IHProgressHUD", ofType: "bundle") {
-                if let resourcesBundle = Bundle(path: resourcePath) {
-                    imageBundle = resourcesBundle
-                }
-            }
-
-            return UIImage(named: imageName, in: imageBundle, compatibleWith: nil)
-        
-        #else
-            var imageBundle = Bundle(for: IHProgressHUD.self)
-            if let resourcePath = imageBundle.path(forResource: "IHProgressHUD", ofType: "bundle") {
-                if let resourcesBundle = Bundle(path: resourcePath) {
-                    imageBundle = resourcesBundle
-                }
-            }
-
-            return (UIImage(named: imageName, in: imageBundle, compatibleWith: nil))
-        #endif
     }
 }
 
