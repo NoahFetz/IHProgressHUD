@@ -133,19 +133,6 @@ public class IHProgressHUD : UIView {
             if (indefiniteAnimatedView == nil) {
                 indefiniteAnimatedView = IndefiniteAnimatedView(frame: .zero)
             }
-            
-            indefiniteAnimatedView?.setIndefinite(strokeColor: foregroundImageColorForStyle())
-            indefiniteAnimatedView?.setIndefinite(strokeThickness: ringThickness)
-            
-            var radius :CGFloat = 0.0
-            
-            if getStatusLabel().text != nil {
-                radius = ringRadius
-            } else {
-                radius = ringNoTextRadius
-            }
-            
-            indefiniteAnimatedView?.setIndefinite(radius: radius)
         } else {
             indefiniteAnimatedView?.removeAnimationLayer()
             indefiniteAnimatedView?.setActivityIndicator(color: foregroundImageColorForStyle())
@@ -466,14 +453,10 @@ public class IHProgressHUD : UIView {
             } else {
                 // Fallback on earlier versions
                 var window: UIWindow?
-                if #available(iOS 13, *) {
-                    window = UIApplication.shared.connectedScenes
-                        .compactMap { $0 as? UIWindowScene }
-                        .flatMap { $0.windows }
-                        .first(where: { $0.isKeyWindow })
-                } else {
-                    window = UIApplication.shared.keyWindow
-                }
+                window = UIApplication.shared.connectedScenes
+                    .compactMap { $0 as? UIWindowScene }
+                    .flatMap { $0.windows }
+                    .first(where: { $0.isKeyWindow })
                 frame = window!.bounds
                 
                 orientation = UIApplication.shared.statusBarOrientation
